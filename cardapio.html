@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Saboroso</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #000, #fff);
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ccc;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        section h2 {
+            font-size: 2.5em;
+            color: #000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        section#reserva {
+            padding: 30px;
+            margin-top: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 800px;
+            margin: auto;
+        }
+        form label {
+            font-size: 1.2em;
+            color: #333;
+        }
+        form input[type="text"],
+        form input[type="date"],
+        form input[type="time"],
+        form input[type="number"] {
+            padding: 12px;
+            font-size: 1.1em;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        form input[type="text"]:focus,
+        form input[type="date"]:focus,
+        form input[type="time"]:focus,
+        form input[type="number"]:focus {
+            border-color: #333;
+            outline: none;
+        }
+        form input[type="submit"] {
+            grid-column: span 2;
+            padding: 15px;
+            font-size: 1.2em;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        form input[type="submit"]:hover {
+            background-color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        footer p {
+            margin: 0;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .menu-item h3 {
+            margin: 0 0 10px 0;
+            color: #000;
+            font-size: 1.5em;
+        }
+        .menu-item p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+        .menu-item button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .menu-item button:hover {
+            background-color: #555;
+        }
+        section#entradas, section#sobremesas, section#bebidas, section#entrega, section#reserva {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Restaurante Saboroso</h1>
+        <p>Delícias para todos os momentos</p>
+    </header>
+
+    <nav>
+        <a href="#entradas">Entradas</a>
+        <a href="#sobremesas">Sobremesas</a>
+        <a href="#bebidas">Bebidas</a>
+        <a href="#entrega">Entrega</a>
+        <a href="#reserva">Reserva de Mesa</a>
+    </nav>
+
+    <div class="container">
+
+        <section id="entradas">
+            <h2>Entradas</h2>
+            <div class="menu-item">
+                <div>
+                    <h3>Bruschetta</h3>
+                    <p>Fatias de pão crocante com tomate, manjericão e azeite.</p>
+                </div>
+                <span class="price">R$ 15,00</span>
+                <a href="finalizar-pedido.html?item=Bruschetta&preco=15.00"><button>Fazer Pedido</button></a>
+            </div>
+            <div class="menu-item">
+                <div>
+                    <h3>Salada Caprese</h3>
+                    <p>Queijo mussarela de búfala, tomate e manjericão com azeite.</p>
+                </div>
+                <span class="price">R$ 18,00</span>
+                <a href="finalizar-pedido.html?item=Salada%20Caprese&preco=18.00"><button>Fazer Pedido</button></a>
+            </div>
+        </section>
+
+        <section id="sobremesas">
+            <h2>Sobremesas</h2>
+            <div class="menu-item">
+                <div>
+                    <h3>Torta de Limão</h3>
+                    <p>Deliciosa torta de limão com base crocante.</p>
+                </div>
+                <span class="price">R$ 12,00</span>
+                <a href="finalizar-pedido.html?item=Torta%20de%20Limão&preco=12.00"><button>Fazer Pedido</button></a>
+            </div>
+            <div class="menu-item">
+                <div>
+                    <h3>Pudim de Leite</h3>
+                    <p>Pudim cremoso com calda de caramelo.</p>
+                </div>
+                <span class="price">R$ 10,00</span>
+                <a href="finalizar-pedido.html?item=Pudim%20de%20Leite&preco=10.00"><button>Fazer Pedido</button></a>
+            </div>
+        </section>
+
+        <section id="bebidas">
+            <h2>Bebidas</h2>
+            <div class="menu-item">
+                <div>
+                    <h3>Suco Natural</h3>
+                    <p>Escolha entre laranja, limão ou abacaxi.</p>
+                </div>
+                <span class="price">R$ 8,00</span>
+                <a href="finalizar-pedido.html?item=Suco%20Natural&preco=8.00"><button>Fazer Pedido</button></a>
+            </div>
+            <div class="menu-item">
+                <div>
+                    <h3>Água Mineral</h3>
+                    <p>Água mineral com ou sem gás.</p>
+                </div>
+                <span class="price">R$ 4,00</span>
+                <a href="finalizar-pedido.html?item=Água%20Mineral&preco=4.00"><button>Fazer Pedido</button></a>
+            </div>
+        </section>
+
+        <!-- Seção Entrega -->
+        <section id="entrega">
+            <h2>Entrega</h2>
+            <p>Para garantir que você aproveite nossas delícias no conforto de sua casa, oferecemos serviços de entrega com as seguintes condições:</p>
+            <ul>
+                <li><strong>Taxa de entrega:</strong> A taxa de entrega varia de acordo com a sua localização. Consulte-nos pelo telefone ou site para mais detalhes.</li>
+                <li><strong>Horário de entrega:</strong> As entregas são realizadas das 11h às 22h todos os dias.</li>
+                <li><strong>Prazo de entrega:</strong> O prazo estimado para entrega é de até 45 minutos, dependendo da sua localidade.</li>
+                <li><strong>Formas de pagamento:</strong> Aceitamos pagamentos via cartão de crédito, débito, Pix e dinheiro.</li>
+                <li><strong>Zona de entrega:</strong> Atendemos toda a cidade e arredores. Consulte a disponibilidade para o seu bairro.</li>
+            </ul>
+            <p>Faça seu pedido e aproveite as delícias do Restaurante Saboroso no conforto da sua casa!</p>
+        </section>
+
+        <!-- Seção Reserva de Mesa -->
+        <section id="reserva">
+            <h2>Reservar Mesa</h2>
+            <p>Para garantir sua mesa em nosso restaurante, basta preencher o formulário abaixo ou ligar diretamente para nossa central de reservas.</p>
+            <form action="reservar-confirmacao.html" method="GET">
+            <form action="reservar-mesa.html" method="POST">
+                <label for="nome">Seu Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="data">Data da Reserva:</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required>
+
+                <label for="pessoas">Número de Pessoas:</label>
+                <input type="number" id="pessoas" name="pessoas" min="1" required>
+
+                <input type="submit" value="Reservar Agora">
+            </form>
+            <p>Ou ligue para <strong>(11) 1234-5678</strong> para reservas imediatas.</p>
+        
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva Confirmada - Restaurante Saboroso</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #000, #fff);
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+        .container {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        h2 {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .details {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .details p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        reservar-confirmacao.html?nome=João%20da%20Silva&data=25/12/2024&hora=19:30
+    </style>
+</head>
+<body>
+    <footer>
+        <p>&copy; 2024 Restaurante Saboroso. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

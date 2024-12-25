@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido - Restaurante Saboroso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff; /* Texto branco */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333; /* Cor de fundo cinza escuro */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff; /* Fundo branco para a área de conteúdo */
+            color: #000; /* Texto preto */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #333; /* Cor cinza escuro para títulos */
+        }
+        #pedido {
+            margin-bottom: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 15px 25px;
+            background-color: #333; /* Cor do botão em cinza escuro */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #444; /* Tom mais claro ao passar o mouse */
+        }
+        footer {
+            background-color: #333; /* Cor de fundo cinza escuro */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Finalizar Pedido</h1>
+        <p>Confirme os detalhes do seu pedido abaixo.</p>
+    </header>
+
+    <div class="container">
+        <h2>Detalhes do Pedido</h2>
+        <div id="pedido">
+            <p><strong>Item:</strong> <span id="item"></span></p>
+            <p><strong>Preço:</strong> R$ <span id="preco"></span></p>
+        </div>
+
+        <h3>Escolha a forma de pagamento</h3>
+        <form id="form-pedido">
+            <label for="pagamento">Método de Pagamento:</label>
+            <select id="pagamento" required>
+                <option value="cartao">Cartão de Crédito</option>
+                <option value="cartao">Cartão de Débito</option>
+                <option value="pix">Pix</option>
+                <option value="dinheiro">Dinheiro</option>
+            </select>
+
+            <br><br>
+            <label for="endereco">Endereço de Entrega (Numero):</label>
+            <input type="text" id="endereco" placeholder="Digite o endereço" required>
+
+            <br><br>
+            <button type="submit">Finalizar Pedido</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Restaurante Saboroso. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Captura os parâmetros da URL (item e preço)
+        const urlParams = new URLSearchParams(window.location.search);
+        const item = urlParams.get('item');
+        const preco = urlParams.get('preco');
+
+        // Preenche as informações na página
+        document.getElementById('item').textContent = item;
+        document.getElementById('preco').textContent = preco;
+
+        // Função para enviar o formulário e finalizar o pedido
+        document.getElementById('form-pedido').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const metodoPagamento = document.getElementById('pagamento').value;
+
+            // Confirmação de pagamento via Cartão ou Pix
+            if (metodoPagamento === 'pix') {
+                alert('Pagamento via Pix processado com sucesso!');
+            } else {
+                alert('Pagamento via Cartão de Débito ou Crédito processado com sucesso!');
+            }
+
+            // Redireciona para a página de agradecimento
+            window.location.href = 'agradecimento.html';
+        });
+    </script>
+</body>
+</html>
